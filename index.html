@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<audio id="global-audio-player"></audio>
+<audio id="global-audio-player" preload="auto"></audio>
 
 <div class="main-container">
     <div class="brand-header">
@@ -22,7 +22,7 @@
     <div class="social-icons">
         <a href="https://www.facebook.com/camelmusicrecords" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/camelmusic.records/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://open.spotify.com/user/camelmusicrecords" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://open.spotify.com/user/tu_id" target="_blank"><i class="fab fa-spotify"></i></a>
         <a href="https://soundcloud.com/camelmusicrecords" target="_blank"><i class="fab fa-soundcloud"></i></a>
         <a href="https://www.youtube.com/@camelmusic.records" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://www.tiktok.com/@camelmusicrecords" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -107,10 +107,10 @@
 
 <div id="mini-player">
     <div class="player-content">
-        <i class="fas fa-music"></i>
-        <span id="player-text">Sonando previo...</span>
+        <i class="fas fa-compact-disc fa-spin"></i>
+        <span id="player-text">Cargando...</span>
     </div>
-    <button onclick="stopAudio()" class="stop-btn">✕</button>
+    <button id="close-player-btn" class="stop-btn">✕</button>
 </div>
 
 <script src="script.js"></script>
