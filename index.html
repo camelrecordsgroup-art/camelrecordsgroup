@@ -30,8 +30,8 @@
 
     <div class="nav-container">
         <nav class="nav-scroll-menu">
-            <a href="#" class="nav-link active">Releases</a>
-            <a href="#" class="nav-link">Pre-Save</a>
+            <a href="#releases" class="nav-link">Releases</a>
+            <a href="#pre-save" class="nav-link">Pre-Save</a>
             <a href="#" class="nav-link">Artists</a>
             <a href="#" class="nav-link">Store</a>
             <a href="#" class="nav-link">Bandcamp</a>
@@ -46,7 +46,6 @@
             <i class="fas fa-chevron-right" id="nextBtn"></i>
         </div>
     </div>
-
     <div class="carousel-container" id="video-carousel">
         <div class="video-card">
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SBhL8Rjxj-8" frameborder="0" allowfullscreen></iframe>
@@ -56,7 +55,7 @@
         </div>
     </div>
 
-    <section class="releases-section">
+    <section class="releases-section" id="releases">
         <div class="section-header">
             <h2 class="section-title">Releases</h2>
             <div class="arrows-container">
@@ -64,11 +63,10 @@
                 <i class="fas fa-chevron-right" id="nextRel"></i>
             </div>
         </div>
-
         <div class="releases-grid" id="releasesGrid">
             <div class="release-item">
                 <div class="release-thumbnail">
-                    <img src="441.jpg" alt="CMR441">
+                    <img src="441.jpg" alt="All Nighter">
                     <button class="play-btn-overlay" data-audio="https://p.scdn.co/mp3-preview/38749f168b91954388e390c50058e178593c7270">
                         <i class="fas fa-play"></i>
                     </button>
@@ -81,7 +79,6 @@
                     </button>
                 </div>
             </div>
-
             <div class="release-item">
                 <div class="release-thumbnail">
                     <img src="https://cdn.komi.io/photos/4fP0cPTQrAKaTXT7gzr6Q.jpg" alt="Farsha">
@@ -99,13 +96,42 @@
             </div>
         </div>
     </section>
+
+    <section class="pre-save-section" id="pre-save">
+        <div class="section-header">
+            <h2 class="section-title">Pre-Save</h2>
+            <div class="arrows-container">
+                <i class="fas fa-chevron-left" id="prevPre"></i>
+                <i class="fas fa-chevron-right" id="nextPre"></i>
+            </div>
+        </div>
+        <div class="pre-save-grid" id="preSaveGrid">
+            <div class="ps-card">
+                <img src="https://i.imgur.com/e7Q9C2m.png" class="ps-img" alt="Escape">
+                <div class="ps-info">
+                    <h3 class="ps-title">Escape</h3>
+                    <p class="ps-artist">That's Good</p>
+                    <a href="#" class="ps-btn"><i class="fas fa-play"></i> Play</a>
+                </div>
+            </div>
+            <div class="ps-card">
+                <img src="https://i.imgur.com/8Nf9y2S.png" class="ps-img" alt="Backroom">
+                <div class="ps-info">
+                    <h3 class="ps-title">Backroom</h3>
+                    <p class="ps-artist">SALVAC</p>
+                    <span class="ps-date">Available 15 May 2026</span>
+                    <a href="#" class="ps-btn pre-save-type"><i class="fas fa-music"></i> Pre-Save / Pre-Add</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <div id="mini-player">
     <div class="player-content">
         <div class="disc-icon"><i class="fas fa-compact-disc fa-spin"></i></div>
         <div class="player-info">
-            <span id="player-status">PREVIEW</span>
+            <span id="player-status">ESCUCHANDO PREVIEW</span>
             <span id="player-text">Selecciona un track</span>
         </div>
     </div>
