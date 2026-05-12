@@ -36,3 +36,20 @@ if (nRel && pRel) {
     nRel.onclick = () => { rGrid.scrollBy({ left: 250, behavior: 'smooth' }); };
     pRel.onclick = () => { rGrid.scrollBy({ left: -250, behavior: 'smooth' }); };
 }
+// CONTROL DE MENÚ ACTIVO
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Evitamos que salte la página si no tiene link real aún
+        if(this.getAttribute('href') === "#") {
+            e.preventDefault();
+        }
+
+        // Quitamos la clase 'active' de todos los links
+        navLinks.forEach(l => l.classList.remove('active'));
+
+        // Se la ponemos al que acabamos de tocar
+        this.classList.add('active');
+    });
+});
