@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px 10px;
+    scroll-behavior: smooth; /* Activa el deslizamiento suave global */
 }
 
 .main-container {
@@ -23,6 +24,7 @@ body {
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     margin-bottom: 120px;
+    box-sizing: border-box;
 }
 
 .brand-header { width: 100%; text-align: center; margin-bottom: 10px; }
@@ -32,87 +34,54 @@ body {
 .social-icons { display: flex; gap: 18px; margin-bottom: 25px; font-size: 20px; }
 .social-icons a { color: var(--camel-red); text-decoration: none; }
 
+/* MENÚ ACTUALIZADO (Sin raya) */
 .nav-container { width: 100%; overflow: hidden; margin-bottom: 35px; }
-.nav-scroll-menu { display: flex; overflow-x: auto; gap: 25px; scrollbar-width: none; scroll-behavior: smooth; }
+.nav-scroll-menu { display: flex; overflow-x: auto; gap: 25px; scrollbar-width: none; }
 .nav-scroll-menu::-webkit-scrollbar { display: none; }
-.nav-link { text-decoration: none; color: #000; font-size: 14px; font-weight: 600; padding-bottom: 5px; border-bottom: 2px solid transparent; }
-.nav-link.active { color: var(--camel-red); border-bottom-color: var(--camel-red); }
+.nav-link { 
+    text-decoration: none; 
+    color: #888; /* Color neutro para los inactivos */
+    font-size: 14px; 
+    font-weight: 700; 
+    transition: 0.3s;
+}
+/* Al hacer clic o estar activo cambia el color pero SIN RAYA */
+.nav-link:active, .nav-link:focus { color: var(--camel-red); }
 
-.section-header { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.section-header { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; margin-top: 20px; }
 .section-title { font-size: 13px; font-weight: 800; text-transform: uppercase; }
 .arrows-container i { cursor: pointer; padding: 10px; color: #333; }
 
-.carousel-container { 
-    width: 100%; 
-    display: flex; 
-    gap: 12px; 
-    overflow-x: auto; 
-    scrollbar-width: none; 
-    scroll-behavior: smooth; 
-}
+/* CARRUSELES Y GRIDS */
+.carousel-container { width: 100%; display: flex; gap: 12px; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; margin-bottom: 30px; }
 .carousel-container::-webkit-scrollbar { display: none; }
 .video-card { min-width: 85%; aspect-ratio: 16/9; background: #000; border-radius: 20px; overflow: hidden; }
 
-.releases-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 20px; 
-    width: 100%; 
-    overflow-x: auto; 
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-}
+.releases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; }
 .releases-grid::-webkit-scrollbar { display: none; }
-.release-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 140px; }
-.release-thumbnail { position: relative; width: 100%; aspect-ratio: 1/1; border-radius: 20px; overflow: hidden; background: #eee; }
+.release-item { display: flex; flex-direction: column; min-width: 140px; }
+.release-thumbnail { position: relative; width: 100%; aspect-ratio: 1/1; border-radius: 20px; overflow: hidden; }
 .release-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
-
-.play-btn-overlay {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 45px; height: 45px;
-    background: white;
-    border: none;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    cursor: pointer;
-}
+.play-btn-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 45px; height: 45px; background: white; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; }
 
 .track-title { font-size: 14px; font-weight: 700; margin: 12px 0 2px 0; }
 .artist-name { font-size: 12px; color: #777; margin-bottom: 10px; }
+.play-label-btn { background: #000; color: white; border: none; padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; }
 
-.play-label-btn {
-    background: #000;
-    color: white;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex; align-items: center; gap: 8px;
-}
+/* PRE-SAVE SECTION */
+.pre-save-section { width: 100%; padding-top: 10px; }
+.pre-save-grid { display: flex; gap: 15px; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; }
+.ps-card { min-width: 280px; background: #fdfdfd; border: 1px solid #f0f0f0; border-radius: 25px; padding: 15px; display: flex; align-items: center; gap: 15px; }
+.ps-img { width: 85px; height: 85px; border-radius: 18px; object-fit: cover; }
+.ps-info { display: flex; flex-direction: column; flex: 1; }
+.ps-title { font-size: 15px; font-weight: 700; margin: 0; }
+.ps-artist { font-size: 13px; color: #666; margin: 2px 0 8px 0; }
+.ps-date { font-size: 11px; font-weight: 800; color: #222; margin-bottom: 8px; text-transform: uppercase; }
+.ps-btn { background: #f2f2f2; color: #000; text-decoration: none; padding: 8px 15px; border-radius: 20px; font-size: 12px; font-weight: 700; text-align: center; }
+.ps-btn.pre-save-type { background: #000; color: #fff; }
 
-#mini-player {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(200%);
-    width: 90%;
-    max-width: 420px;
-    background: #111;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.5s ease-out;
-    z-index: 10000;
-}
-
+/* MINI PLAYER */
+#mini-player { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(200%); width: 90%; max-width: 420px; background: #111; color: white; padding: 12px 20px; border-radius: 50px; display: flex; justify-content: space-between; align-items: center; transition: 0.5s ease-out; z-index: 10000; }
 #mini-player.active { transform: translateX(-50%) translateY(0); }
 .player-content { display: flex; align-items: center; gap: 15px; }
 .disc-icon { color: var(--camel-red); }
