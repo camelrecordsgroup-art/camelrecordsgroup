@@ -23,7 +23,8 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    margin-bottom: 100px; /* Espacio para que el reproductor no tape el final */
+    margin-bottom: 120px;
+    box-sizing: border-box;
 }
 
 .brand-header {
@@ -43,7 +44,7 @@ body {
     margin: 15px 0;
 }
 
-/* ICONOS DE REDES SOCIALES */
+/* ICONOS DE REDES SOCIALES (Recuperamos el rojo) */
 .social-icons {
     display: flex;
     gap: 20px;
@@ -57,8 +58,7 @@ body {
     transition: all 0.3s ease; 
 }
 
-.social-icons a:hover,
-.social-icons a:active { 
+.social-icons a:hover { 
     color: #000000; 
     transform: scale(1.2); 
 }
@@ -67,14 +67,14 @@ body {
 .nav-container {
     width: 100%;
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 }
 
 .nav-scroll-menu {
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
-    gap: 20px;
+    gap: 30px;
     padding: 10px 5px;
     scrollbar-width: none; 
 }
@@ -86,7 +86,7 @@ body {
     font-size: 14px;
     font-weight: 600;
     transition: color 0.3s ease;
-    padding: 5px 0;
+    padding: 8px 0;
     border-bottom: 2px solid transparent;
 }
 
@@ -95,17 +95,13 @@ body {
     border-bottom: 2px solid var(--camel-red);
 }
 
-.nav-link:hover {
-    color: var(--camel-red);
-}
-
 /* CABECERAS DE SECCIÓN */
 .section-header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .section-title {
@@ -118,11 +114,10 @@ body {
 .arrows-container {
     display: flex;
     gap: 15px;
-    font-size: 16px;
-    color: #444;
+    cursor: pointer;
 }
 
-/* CARRUSEL YOUTUBE */
+/* CARRUSEL YOUTUBE (Arreglado) */
 .carousel-container {
     width: 100%;
     display: flex;
@@ -143,12 +138,7 @@ body {
     scroll-snap-align: center;
 }
 
-/* GRID DE LANZAMIENTOS (RELEASES) */
-.releases-section {
-    width: 100%;
-    margin-top: 10px;
-}
-
+/* GRID DE RELEASES (Arreglado) */
 .releases-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -157,11 +147,11 @@ body {
 }
 
 .release-item {
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    display: flex;
-    flex-direction: column;
 }
 
 .release-thumbnail {
@@ -177,7 +167,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
 .play-overlay {
@@ -191,28 +180,12 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
     color: white;
-    font-size: 24px;
 }
 
 .release-item:hover .play-overlay { opacity: 1; }
-.release-item:hover .release-thumbnail img { transform: scale(1.05); }
 
-.release-body {
-    padding: 10px 0;
-}
-
-.track-title {
-    font-size: 14px;
-    font-weight: 700;
-    margin: 0;
-    color: #111;
-}
-
-.artist-name {
-    font-size: 12px;
-    color: #666;
-    margin: 2px 0 8px 0;
-}
+.track-title { font-size: 14px; font-weight: 700; margin: 10px 0 2px 0; }
+.artist-name { font-size: 12px; color: #666; margin-bottom: 8px; }
 
 .play-label {
     font-size: 11px;
@@ -226,40 +199,48 @@ body {
     width: fit-content;
 }
 
-/* REPRODUCTOR FLOTANTE ANIMADO */
+/* REPRODUCTOR FLOTANTE */
 #player-container {
+    display: none; 
     position: fixed;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%) translateY(100%); /* Empieza fuera de pantalla */
+    transform: translateX(-50%) translateY(100%);
     width: 100%;
     max-width: 480px;
     background: white;
-    padding: 15px 10px 25px 10px;
+    padding: 15px 15px 25px 15px;
     box-shadow: 0 -10px 30px rgba(0,0,0,0.15);
     border-radius: 30px 30px 0 0;
     z-index: 1000;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-sizing: border-box;
 }
 
-/* Clase que activa el JS para mostrarlo */
 #player-container.active {
+    display: block;
     transform: translateX(-50%) translateY(0);
+}
+
+.close-player {
+    background: var(--camel-red);
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
+    float: right;
 }
 
 #spotify-widget {
     border-radius: 15px;
-    background: transparent;
-}
-
-/* Botón cerrar opcional pero recomendado */
-.close-player {
     width: 100%;
-    text-align: right;
-    padding-bottom: 5px;
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--camel-red);
-    cursor: pointer;
-    text-transform: uppercase;
+    height: 80px;
+    border: none;
 }
