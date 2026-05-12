@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CamelMusic Records | Linktree Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
+    <title>CamelMusic Records™</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/eb4281358c.js" crossorigin="anonymous"></script> <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-color: #ffffff;
-            --accent-color: #007aff; /* Puedes cambiar este azul por el de tu marca */
+            --bg-color: #e2e2d5; /* El color crema de tu KOMI */
+            --text-color: #1a1a1a;
+            --card-bg: #ffffff;
         }
 
         body {
@@ -19,124 +18,155 @@
             color: var(--text-color);
             margin: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             padding: 20px;
         }
 
-        /* 1. IMAGEN DEL SELLO */
-        .header-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #333; /* Temporal hasta que pongas tu imagen */
-            margin-top: 40px;
-            border: 2px solid var(--card-bg);
-            object-fit: cover;
-        }
-
-        /* 2. NOMBRE DEL SELLO */
-        .brand-name {
-            margin: 15px 0 30px 0;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        /* 3. MENU DE LINKS PRINCIPALES */
-        .menu-container {
+        .main-container {
+            background: white;
             width: 100%;
-            max-width: 400px;
+            max-width: 600px;
+            border-radius: 30px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
-
-        .menu-item {
-            background: var(--card-bg);
-            padding: 16px;
-            border-radius: 15px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            transition: transform 0.2s;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .menu-item:hover {
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* 4. CARRUSEL INFINITO (Lanzamientos/Youtube) */
-        .carousel-title {
-            align-self: flex-start;
-            max-width: 400px;
-            margin: 0 auto 10px auto;
-            width: 100%;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #888;
-        }
-
-        .carousel-wrapper {
-            width: 100%;
-            max-width: 400px;
-            overflow-x: auto;
-            display: flex;
-            gap: 15px;
-            padding-bottom: 20px;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none; /* Oculta scroll en Firefox */
-        }
-
-        .carousel-wrapper::-webkit-scrollbar {
-            display: none; /* Oculta scroll en Chrome/Safari */
-        }
-
-        .card {
-            min-width: 150px;
-            height: 150px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            scroll-snap-align: start;
-            flex-shrink: 0;
-            display: flex;
             align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* 1. LOGO CUADRADO */
+        .brand-logo {
+            width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* 2. NOMBRE CON ESTILO KOMI */
+        .brand-name {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 10px 0;
+            letter-spacing: -1px;
+        }
+
+        /* 3. ICONOS REDES SOCIALES */
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0 25px 0;
+            font-size: 20px;
+        }
+        .social-icons a { color: var(--text-color); text-decoration: none; }
+
+        /* 4. MENU HORIZONTAL */
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .nav-item {
+            background: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+
+        .nav-item:hover { background: #e0e0e0; }
+
+        /* 5. CARRUSEL DE VIDEOS (Estilo YouTube/Releases) */
+        .carousel-header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-right: 10px;
+        }
+
+        .carousel-container {
+            width: 100%;
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .carousel-container::-webkit-scrollbar { display: none; }
+
+        .video-card {
+            min-width: 280px;
+            aspect-ratio: 16/9;
+            background: #333;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: center;
+        }
+
+        .video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: white;
+            opacity: 0.9;
         }
 
     </style>
 </head>
 <body>
 
-    <!-- Bloque 1: Imagen -->
-    <div class="header-img">
-        <!-- <img src="tu-logo.jpg" alt="Logo"> -->
-    </div>
+    <div class="main-container">
+        <img src="https://via.placeholder.com/250x150?text=CamelMusic+Logo" class="brand-logo" alt="Logo">
 
-    <!-- Bloque 2: Texto -->
-    <h1 class="brand-name">CamelMusic Records</h1>
+        <h1 class="brand-name">CamelMusic Records™</h1>
 
-    <!-- Bloque 3: Menú -->
-    <nav class="menu-container">
-        <a href="#" class="menu-item">AlwaysTechno</a>
-        <a href="#" class="menu-item">WaveBeats</a>
-        <a href="#" class="menu-item">Demos / Podcast</a>
-    </nav>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+            <a href="#"><i class="fab fa-soundcloud"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
 
-    <!-- Bloque 4: Carrusel de Videos/Lanzamientos -->
-    <p class="carousel-title">Últimos Lanzamientos</p>
-    <div class="carousel-wrapper">
-        <div class="card">Release 1</div>
-        <div class="card">Release 2</div>
-        <div class="card">Release 3</div>
-        <div class="card">Release 4</div>
-        <div class="card">Release 1 (Loop)</div> <!-- Duplicado para efecto visual -->
+        <nav class="nav-menu">
+            <a href="#" class="nav-item">Releases</a>
+            <a href="#" class="nav-item">Pre-Save</a>
+            <a href="#" class="nav-item">Artists</a>
+            <a href="#" class="nav-item">Store</a>
+            <a href="#" class="nav-item">Bandcamp</a>
+            <a href="#" class="nav-item">Playlist's</a>
+        </nav>
+
+        <div class="carousel-header">
+            <span><i class="fas fa-chevron-left"></i></span>
+            <span><i class="fas fa-chevron-right"></i></span>
+        </div>
+        <div class="carousel-container">
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225" alt="Release 1">
+                <div class="play-btn"><i class="far fa-play-circle"></i></div>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225" alt="Release 2">
+                <div class="play-btn"><i class="far fa-play-circle"></i></div>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225" alt="Release 3">
+                <div class="play-btn"><i class="far fa-play-circle"></i></div>
+            </div>
+        </div>
     </div>
 
 </body>
