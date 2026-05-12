@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerText = document.getElementById('player-text');
     const closeBtn = document.getElementById('close-player-btn');
 
+    // Reproducción de Audio
     const playButtons = document.querySelectorAll('.play-btn-overlay, .play-label-btn');
-    
     playButtons.forEach(btn => {
         btn.onclick = function() {
             const audioSrc = this.getAttribute('data-audio');
@@ -15,23 +15,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 audio.pause();
                 miniPlayer.classList.remove('active');
             } else {
-                audio.pause(); // Detenemos cualquier previo anterior
+                audio.pause();
                 audio.src = audioSrc;
-                audio.play().catch(e => console.log("Audio bloqueado por navegador"));
+                audio.play().catch(e => console.log("Audio bloqueado"));
                 playerText.innerText = trackName;
                 miniPlayer.classList.add('active');
             }
         };
     });
 
-    closeBtn.onclick = () => {
-        audio.pause();
-        miniPlayer.classList.remove('active');
+    closeBtn.onclick = () => { audio.pause(); miniPlayer.classList.remove('active'); };
+
+    // Navegación con Scroll Suave
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if(targetId.startsWith("#")) {
+                e.preventDefault();
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Flechas de carruseles
+    const setupArrows = (prevId, nextId, gridId, scrollAmount) => {
+        const prev = document.getElementById(prevId);
+        const next = document.getElementById(nextId);
+        const grid = document.getElementById(gridId);
+        if (next && prev && grid) {
+            next.onclick = () => grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            prev.onclick = () => grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
     };
 
-    // Flechas
-    document.getElementById('nextBtn').onclick = () => document.getElementById('video-carousel').scrollBy({ left: 300, behavior: 'smooth' });
-    document.getElementById('prevBtn').onclick = () => document.getElementById('video-carousel').scrollBy({ left: -300, behavior: 'smooth' });
-    document.getElementById('nextRel').onclick = () => document.getElementById('releasesGrid').scrollBy({ left: 160, behavior: 'smooth' });
-    document.getElementById('prevRel').onclick = () => document.getElementById('releasesGrid').scrollBy({ left: -160, behavior: 'smooth' });
+    setupArrows('prevBtn', 'nextBtn', 'video-carousel', 320);
+    setupArrows('prevRel', 'nextRel', 'releasesGrid', 160);
+    setupArrows('prevPre', 'nextPre', 'preSaveGrid', 300);
 });
