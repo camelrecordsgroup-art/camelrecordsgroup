@@ -23,7 +23,6 @@ body {
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     margin-bottom: 120px;
-    box-sizing: border-box;
 }
 
 .brand-header { width: 100%; text-align: center; margin-bottom: 10px; }
@@ -31,31 +30,28 @@ body {
 .brand-name { font-size: 24px; font-weight: 800; margin: 15px 0; }
 
 .social-icons { display: flex; gap: 18px; margin-bottom: 25px; font-size: 20px; }
-.social-icons a { color: var(--camel-red); text-decoration: none; transition: 0.3s; }
-.social-icons a:hover { color: #000; transform: scale(1.1); }
+.social-icons a { color: var(--camel-red); text-decoration: none; }
 
 .nav-container { width: 100%; overflow: hidden; margin-bottom: 35px; }
-.nav-scroll-menu { display: flex; overflow-x: auto; gap: 25px; padding: 10px 0; scrollbar-width: none; scroll-behavior: smooth; }
+.nav-scroll-menu { display: flex; overflow-x: auto; gap: 25px; scrollbar-width: none; scroll-behavior: smooth; }
 .nav-scroll-menu::-webkit-scrollbar { display: none; }
 .nav-link { text-decoration: none; color: #000; font-size: 14px; font-weight: 600; padding-bottom: 5px; border-bottom: 2px solid transparent; }
 .nav-link.active { color: var(--camel-red); border-bottom-color: var(--camel-red); }
 
-.section-header { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; margin-top: 10px; }
+.section-header { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
 .section-title { font-size: 13px; font-weight: 800; text-transform: uppercase; }
-.arrows-container i { cursor: pointer; padding: 10px; color: #333; font-size: 18px; }
+.arrows-container i { cursor: pointer; padding: 10px; color: #333; }
 
 .carousel-container { 
     width: 100%; 
     display: flex; 
     gap: 12px; 
     overflow-x: auto; 
-    scroll-snap-type: x mandatory; 
     scrollbar-width: none; 
-    margin-bottom: 30px;
     scroll-behavior: smooth; 
 }
 .carousel-container::-webkit-scrollbar { display: none; }
-.video-card { min-width: 85%; aspect-ratio: 16/9; background: #000; border-radius: 20px; overflow: hidden; scroll-snap-align: center; }
+.video-card { min-width: 85%; aspect-ratio: 16/9; background: #000; border-radius: 20px; overflow: hidden; }
 
 .releases-grid { 
     display: grid; 
@@ -63,8 +59,8 @@ body {
     gap: 20px; 
     width: 100%; 
     overflow-x: auto; 
-    scroll-behavior: smooth;
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 .releases-grid::-webkit-scrollbar { display: none; }
 .release-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 140px; }
@@ -99,24 +95,28 @@ body {
     display: flex; align-items: center; gap: 8px;
 }
 
-/* MINI PLAYER */
 #mini-player {
     position: fixed;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%) translateY(200%);
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
     background: #111;
     color: white;
-    padding: 15px 20px;
-    border-radius: 40px;
+    padding: 12px 20px;
+    border-radius: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.4s ease-out;
+    transition: transform 0.5s ease-out;
     z-index: 10000;
 }
+
 #mini-player.active { transform: translateX(-50%) translateY(0); }
-.player-content { display: flex; align-items: center; gap: 12px; font-size: 14px; }
-.stop-btn { background: transparent; border: none; color: white; font-size: 20px; cursor: pointer; padding: 5px; }
+.player-content { display: flex; align-items: center; gap: 15px; }
+.disc-icon { color: var(--camel-red); }
+.player-info { display: flex; flex-direction: column; }
+#player-status { font-size: 10px; font-weight: 800; color: #aaa; }
+#player-text { font-size: 14px; font-weight: 600; }
+.stop-btn { background: #333; border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
