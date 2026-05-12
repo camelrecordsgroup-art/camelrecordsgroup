@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamelMusic Records | JayCamel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <div class="main-container">
 
     <div class="brand-header">
@@ -48,43 +63,46 @@
     </div>
 
     <section class="releases-section">
-    <div class="section-header">
-        <h2 class="section-title">Releases</h2>
-        <div class="arrows-container">
-            <i class="fas fa-chevron-left" id="prevRel"></i>
-            <i class="fas fa-chevron-right" id="nextRel"></i>
+        <div class="section-header">
+            <h2 class="section-title">Releases</h2>
+            <div class="arrows-container">
+                <i class="fas fa-chevron-left" id="prevRel"></i>
+                <i class="fas fa-chevron-right" id="nextRel"></i>
+            </div>
         </div>
+
+        <div class="releases-grid" id="releasesGrid">
+            <div class="release-item" onclick="playSong('UKACT2673321')">
+                <div class="release-thumbnail">
+                    <img src="https://cdn.komi.io/photos/sXgAzMtNJ-3EZl5Q1zclx.jpg" alt="All Nighter">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="release-body">
+                    <h3 class="track-title">All Nighter</h3>
+                    <p class="artist-name">Omar A.</p>
+                    <div class="play-label"><i class="fas fa-play"></i> Play</div>
+                </div>
+            </div>
+
+            <div class="release-item" onclick="playSong('UKACT2673320')">
+                <div class="release-thumbnail">
+                    <img src="https://cdn.komi.io/photos/4fP0cPTQrAKaTXT7gzr6Q.jpg" alt="Farsha">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="release-body">
+                    <h3 class="track-title">Farsha</h3>
+                    <p class="artist-name">Stephan Barbieri</p>
+                    <div class="play-label"><i class="fas fa-play"></i> Play</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="player-container" style="display:none; width: 100%; margin-top: 20px;">
+        <iframe id="spotify-widget" src="" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media; autoplay"></iframe>
     </div>
 
-    <div class="releases-grid" id="releasesGrid">
-        
-        <div class="release-item" onclick="playSong('UKACT2673321')">
-            <div class="release-thumbnail">
-                <img src="https://cdn.komi.io/photos/sXgAzMtNJ-3EZl5Q1zclx.jpg" alt="All Nighter">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <div class="release-body">
-                <h3 class="track-title">All Nighter</h3>
-                <p class="artist-name">Omar A.</p>
-                <div class="play-label"><i class="fas fa-play"></i> Play</div>
-            </div>
-        </div>
+</div> <script src="script.js"></script>
 
-        <div class="release-item" onclick="playSong('UKACT2673320')">
-            <div class="release-thumbnail">
-                <img src="https://cdn.komi.io/photos/4fP0cPTQrAKaTXT7gzr6Q.jpg" alt="Farsha">
-                <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <div class="release-body">
-                <h3 class="track-title">Farsha</h3>
-                <p class="artist-name">Stephan Barbieri</p>
-                <div class="play-label"><i class="fas fa-play"></i> Play</div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<div id="player-container" style="display:none; width: 100%; margin-top: 20px;">
-    <iframe id="spotify-widget" src="" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media; autoplay"></iframe>
-</div>
+</body>
+</html>
