@@ -3,19 +3,21 @@ function playSong(isrc) {
     const container = document.getElementById('player-container');
     const widget = document.getElementById('spotify-widget');
     
-    if (widget && container) {
-        // Usamos el embed oficial de Spotify configurado para ISRC
-        // El formato es: https://open.spotify.com/embed/track/isrc:CÓDIGO
-        widget.src = `https://open.spotify.com/embed/track/isrc:${isrc}?utm_source=generator&theme=0`;
-        
-        // Mostramos el contenedor (que estaba en display:none)
-        container.style.display = "block";
-        
-        // Efecto visual: Scroll suave hacia el reproductor
-        container.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        console.log("Cargando preview para ISRC: " + isrc);
-    }
+    // Cambiamos el link al reproductor oficial de Spotify usando el ISRC
+    widget.src = `http://googleusercontent.com/spotify.com/7{isrc}&theme=0`;
+    
+    // Activamos la animación de subida
+    container.classList.add('active');
+}
+
+function closePlayer() {
+    const container = document.getElementById('player-container');
+    container.classList.remove('active');
+    
+    // Limpiamos el src para que la música deje de sonar al cerrar
+    setTimeout(() => {
+        document.getElementById('spotify-widget').src = "";
+    }, 500);
 }
 
 // 2. CONTROL DE FLECHAS YOUTUBE
