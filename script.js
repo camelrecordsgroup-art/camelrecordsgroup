@@ -4,16 +4,17 @@ function playSong(isrc) {
     const widget = document.getElementById('spotify-widget');
     
     if (widget && container) {
-        // CORRECCIÓN: Se añade el símbolo '$' antes de {isrc} para que funcione la variable
-        widget.src = `https://open.spotify.com/embed/track/${isrc}?utm_source=generator&autoplay=1`;
+        // Usamos el embed oficial de Spotify configurado para ISRC
+        // El formato es: https://open.spotify.com/embed/track/isrc:CÓDIGO
+        widget.src = `https://open.spotify.com/embed/track/isrc:${isrc}?utm_source=generator&theme=0`;
         
-        // Mostramos el reproductor
+        // Mostramos el contenedor (que estaba en display:none)
         container.style.display = "block";
         
-        // Scroll suave al reproductor
+        // Efecto visual: Scroll suave hacia el reproductor
         container.scrollIntoView({ behavior: 'smooth', block: 'center' });
         
-        console.log("Reproduciendo ISRC: " + isrc);
+        console.log("Cargando preview para ISRC: " + isrc);
     }
 }
 
