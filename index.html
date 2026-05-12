@@ -4,27 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CamelMusic Records | JayCamel</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="main-container">
-
     <div class="brand-header">
        <img src="company.png" class="brand-logo" alt="CamelMusic Logo">
     </div>
 
     <h1 class="brand-name">CamelMusic Records™</h1>
 
-<div class="social-icons">
+    <div class="social-icons">
         <a href="https://www.facebook.com/camelmusicrecords" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/camelmusic.records/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://open.spotify.com/artist/4X9yE7yIkaFm46ZlXzD9m5" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://open.spotify.com/user/camelmusicrecords" target="_blank"><i class="fab fa-spotify"></i></a>
         <a href="https://soundcloud.com/camelmusicrecords" target="_blank"><i class="fab fa-soundcloud"></i></a>
         <a href="https://www.youtube.com/@camelmusic.records" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://www.tiktok.com/@camelmusicrecords" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -72,7 +68,7 @@
         </div>
 
         <div class="releases-grid" id="releasesGrid">
-            <div class="release-item" onclick="playSong('UKACT2673321')">
+            <div class="release-item" onclick="playSong('US27Q1530006')">
                 <div class="release-thumbnail">
                     <img src="https://cdn.komi.io/photos/sXgAzMtNJ-3EZl5Q1zclx.jpg" alt="All Nighter">
                     <div class="play-overlay"><i class="fas fa-play"></i></div>
@@ -97,12 +93,11 @@
             </div>
         </div>
     </section>
+</div>
 
-    <div id="player-container" class="player-floating">
-    <div class="player-content">
-        <button onclick="closePlayer()" class="close-player">&times;</button>
-        <iframe id="spotify-widget" src="" width="100%" height="80" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-    </div>
+<div id="player-container">
+    <button onclick="closePlayer()" class="close-player">×</button>
+    <iframe id="spotify-widget" src="" width="100%" height="80" frameborder="0" allow="autoplay; encrypted-media"></iframe>
 </div>
 </body>
 </html>
