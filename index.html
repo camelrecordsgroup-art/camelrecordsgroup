@@ -1,10 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Mi Pagina Estilo KOMI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamelMusic Records | Linktree Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #ffffff;
+            --accent-color: #007aff; /* Puedes cambiar este azul por el de tu marca */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* 1. IMAGEN DEL SELLO */
+        .header-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #333; /* Temporal hasta que pongas tu imagen */
+            margin-top: 40px;
+            border: 2px solid var(--card-bg);
+            object-fit: cover;
+        }
+
+        /* 2. NOMBRE DEL SELLO */
+        .brand-name {
+            margin: 15px 0 30px 0;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* 3. MENU DE LINKS PRINCIPALES */
+        .menu-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .menu-item {
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .menu-item:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 4. CARRUSEL INFINITO (Lanzamientos/Youtube) */
+        .carousel-title {
+            align-self: flex-start;
+            max-width: 400px;
+            margin: 0 auto 10px auto;
+            width: 100%;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        .carousel-wrapper {
+            width: 100%;
+            max-width: 400px;
+            overflow-x: auto;
+            display: flex;
+            gap: 15px;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Oculta scroll en Firefox */
+        }
+
+        .carousel-wrapper::-webkit-scrollbar {
+            display: none; /* Oculta scroll en Chrome/Safari */
+        }
+
+        .card {
+            min-width: 150px;
+            height: 150px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Prueba de mi nueva web</h1>
-    <p>Pronto aquí estará mi diseño personalizado.</p>
+
+    <!-- Bloque 1: Imagen -->
+    <div class="header-img">
+        <!-- <img src="tu-logo.jpg" alt="Logo"> -->
+    </div>
+
+    <!-- Bloque 2: Texto -->
+    <h1 class="brand-name">CamelMusic Records</h1>
+
+    <!-- Bloque 3: Menú -->
+    <nav class="menu-container">
+        <a href="#" class="menu-item">AlwaysTechno</a>
+        <a href="#" class="menu-item">WaveBeats</a>
+        <a href="#" class="menu-item">Demos / Podcast</a>
+    </nav>
+
+    <!-- Bloque 4: Carrusel de Videos/Lanzamientos -->
+    <p class="carousel-title">Últimos Lanzamientos</p>
+    <div class="carousel-wrapper">
+        <div class="card">Release 1</div>
+        <div class="card">Release 2</div>
+        <div class="card">Release 3</div>
+        <div class="card">Release 4</div>
+        <div class="card">Release 1 (Loop)</div> <!-- Duplicado para efecto visual -->
+    </div>
+
 </body>
 </html>
