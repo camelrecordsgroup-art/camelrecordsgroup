@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     box-sizing: border-box;
 }
 
@@ -35,25 +35,42 @@ body {
 .social-icons a:hover { color: #000; transform: scale(1.1); }
 
 .nav-container { width: 100%; overflow: hidden; margin-bottom: 35px; }
-.nav-scroll-menu { display: flex; overflow-x: auto; gap: 25px; padding: 10px 0; scrollbar-width: none; }
+.nav-scroll-menu { display: flex; overflow-x: auto; gap: 25px; padding: 10px 0; scrollbar-width: none; scroll-behavior: smooth; }
 .nav-scroll-menu::-webkit-scrollbar { display: none; }
 .nav-link { text-decoration: none; color: #000; font-size: 14px; font-weight: 600; padding-bottom: 5px; border-bottom: 2px solid transparent; }
 .nav-link.active { color: var(--camel-red); border-bottom-color: var(--camel-red); }
 
 .section-header { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; margin-top: 10px; }
 .section-title { font-size: 13px; font-weight: 800; text-transform: uppercase; }
-.arrows-container i { cursor: pointer; padding: 5px; color: #333; }
+.arrows-container i { cursor: pointer; padding: 10px; color: #333; font-size: 18px; }
 
-.carousel-container { width: 100%; display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-bottom: 30px; }
+.carousel-container { 
+    width: 100%; 
+    display: flex; 
+    gap: 12px; 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    scrollbar-width: none; 
+    margin-bottom: 30px;
+    scroll-behavior: smooth; 
+}
 .carousel-container::-webkit-scrollbar { display: none; }
 .video-card { min-width: 85%; aspect-ratio: 16/9; background: #000; border-radius: 20px; overflow: hidden; scroll-snap-align: center; }
 
-.releases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
-.release-item { display: flex; flex-direction: column; align-items: flex-start; }
+.releases-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    width: 100%; 
+    overflow-x: auto; 
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.releases-grid::-webkit-scrollbar { display: none; }
+.release-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 140px; }
 .release-thumbnail { position: relative; width: 100%; aspect-ratio: 1/1; border-radius: 20px; overflow: hidden; background: #eee; }
 .release-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Botón Play sobre imagen */
 .play-btn-overlay {
     position: absolute;
     top: 50%; left: 50%;
@@ -65,43 +82,41 @@ body {
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     cursor: pointer;
-    font-size: 14px;
 }
 
 .track-title { font-size: 14px; font-weight: 700; margin: 12px 0 2px 0; }
 .artist-name { font-size: 12px; color: #777; margin-bottom: 10px; }
 
-/* Botón Play estilo Komi */
 .play-label-btn {
     background: #000;
     color: white;
     border: none;
-    padding: 7px 15px;
+    padding: 8px 18px;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
-    display: flex; align-items: center; gap: 6px;
+    display: flex; align-items: center; gap: 8px;
 }
 
-/* MINI PLAYER INFERIOR */
+/* MINI PLAYER */
 #mini-player {
     position: fixed;
-    bottom: 25px;
+    bottom: 30px;
     left: 50%;
-    transform: translateX(-50%) translateY(150%);
+    transform: translateX(-50%) translateY(200%);
     width: 90%;
     max-width: 400px;
     background: #111;
     color: white;
-    padding: 12px 20px;
-    border-radius: 30px;
+    padding: 15px 20px;
+    border-radius: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s ease-out;
     z-index: 10000;
 }
 #mini-player.active { transform: translateX(-50%) translateY(0); }
-.player-content { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
-.stop-btn { background: transparent; border: none; color: white; font-size: 18px; cursor: pointer; }
+.player-content { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+.stop-btn { background: transparent; border: none; color: white; font-size: 20px; cursor: pointer; padding: 5px; }
