@@ -40,14 +40,26 @@ body {
     font-weight: 800;
     margin: 15px 0;
 }
-
+/* ICONOS DE REDES SOCIALES */
 .social-icons {
     display: flex;
     gap: 20px;
     margin-bottom: 25px;
-    font-size: 18px;
+    font-size: 20px; /* Tamaño optimizado */
 }
-.social-icons a { color: #000; text-decoration: none; opacity: 0.8; }
+
+.social-icons a { 
+    color: #B60831; /* Rojo CamelMusic */
+    text-decoration: none; 
+    transition: all 0.3s ease; /* Para que el cambio a negro sea suave */
+}
+
+/* EFECTO AL POSAR EL MOUSE O CLIC EN MÓVIL */
+.social-icons a:hover,
+.social-icons a:active { 
+    color: #000000; /* Se pone negro */
+    transform: scale(1.2); /* Crece un poquito */
+}
 
 /* MENÚ DE CATEGORÍAS */
 .nav-container {
