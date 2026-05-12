@@ -62,27 +62,24 @@ body {
 }
 
 /* MENÚ DE CATEGORÍAS */
-.nav-container {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.nav-scroll-menu {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    gap: 20px;
-    padding: 10px 5px;
-    scrollbar-width: none; 
-}
-.nav-scroll-menu::-webkit-scrollbar { display: none; }
-
 .nav-link {
     text-decoration: none;
-    color: #888;
+    color: #000000; /* Color negro por defecto */
     font-size: 14px;
     font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; /* Línea invisible para que no salte al activarse */
+}
+
+/* ESTADO ACTIVO (Color Rojo Camel) */
+.nav-link.active { 
+    color: #B60831; 
+    border-bottom: 2px solid #B60831; /* Subrayado sutil en rojo */
+}
+
+.nav-link:hover {
+    color: #B60831; /* También se pone rojo al pasar el mouse */
 }
 .nav-link.active { color: #000; }
 
