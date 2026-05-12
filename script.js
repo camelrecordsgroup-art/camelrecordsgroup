@@ -1,26 +1,34 @@
-// 1. FUNCION DE AUDIO UNIFICADA
+// 1. FUNCION DE AUDIO CORREGIDA
 function playSong(isrc) {
     const container = document.getElementById('player-container');
     const widget = document.getElementById('spotify-widget');
     
-    // Cambiamos el link al reproductor oficial de Spotify usando el ISRC
-    widget.src = `http://googleusercontent.com/spotify.com/7{isrc}&theme=0`;
-    
-    // Activamos la animación de subida
-    container.classList.add('active');
+    if (isrc) {
+        // Cargamos el ISRC dinámico que viene del clic
+        widget.src = `http://googleusercontent.com/spotify.com/6{isrc}`;
+        
+        // Hacemos que el contenedor exista en el DOM
+        container.style.display = "block";
+        
+        // Retraso mínimo para que la transición CSS de 'translateY' se vea fluida
+        setTimeout(() => {
+            container.classList.add('active');
+        }, 10);
+    }
 }
 
 function closePlayer() {
     const container = document.getElementById('player-container');
     container.classList.remove('active');
     
-    // Limpiamos el src para que la música deje de sonar al cerrar
+    // Esperamos a que baje la animación para ocultarlo y limpiar el audio
     setTimeout(() => {
+        container.style.display = "none";
         document.getElementById('spotify-widget').src = "";
     }, 500);
 }
 
-// 2. CONTROL DE FLECHAS YOUTUBE
+// 2. CONTROLES DE CARRUSELES
 const vCarousel = document.getElementById('video-carousel');
 const nBtn = document.getElementById('nextBtn');
 const pBtn = document.getElementById('prevBtn');
@@ -30,7 +38,6 @@ if (nBtn && pBtn) {
     pBtn.onclick = () => { vCarousel.scrollBy({ left: -300, behavior: 'smooth' }); };
 }
 
-// 3. CONTROL DE FLECHAS RELEASES
 const rGrid = document.getElementById('releasesGrid');
 const nRel = document.getElementById('nextRel');
 const pRel = document.getElementById('prevRel');
@@ -39,20 +46,13 @@ if (nRel && pRel) {
     nRel.onclick = () => { rGrid.scrollBy({ left: 250, behavior: 'smooth' }); };
     pRel.onclick = () => { rGrid.scrollBy({ left: -250, behavior: 'smooth' }); };
 }
-// CONTROL DE MENÚ ACTIVO
-const navLinks = document.querySelectorAll('.nav-link');
 
+// 3. CONTROL DE MENÚ ACTIVO
+const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
-        // Evitamos que salte la página si no tiene link real aún
-        if(this.getAttribute('href') === "#") {
-            e.preventDefault();
-        }
-
-        // Quitamos la clase 'active' de todos los links
+        if(this.getAttribute('href') === "#") e.preventDefault();
         navLinks.forEach(l => l.classList.remove('active'));
-
-        // Se la ponemos al que acabamos de tocar
         this.classList.add('active');
     });
 });
