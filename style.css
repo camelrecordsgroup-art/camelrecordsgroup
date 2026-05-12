@@ -1,5 +1,6 @@
 :root {
     --bg-color: #e2e2d5; /* Fondo crema global */
+    --camel-red: #B60831; /* Rojo CamelMusic */
 }
 
 body {
@@ -22,6 +23,7 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    margin-bottom: 100px; /* Espacio para que el reproductor no tape el final */
 }
 
 .brand-header {
@@ -40,48 +42,62 @@ body {
     font-weight: 800;
     margin: 15px 0;
 }
+
 /* ICONOS DE REDES SOCIALES */
 .social-icons {
     display: flex;
     gap: 20px;
     margin-bottom: 25px;
-    font-size: 20px; /* Tamaño optimizado */
+    font-size: 20px;
 }
 
 .social-icons a { 
-    color: #B60831; /* Rojo CamelMusic */
+    color: var(--camel-red); 
     text-decoration: none; 
-    transition: all 0.3s ease; /* Para que el cambio a negro sea suave */
+    transition: all 0.3s ease; 
 }
 
-/* EFECTO AL POSAR EL MOUSE O CLIC EN MÓVIL */
 .social-icons a:hover,
 .social-icons a:active { 
-    color: #000000; /* Se pone negro */
-    transform: scale(1.2); /* Crece un poquito */
+    color: #000000; 
+    transform: scale(1.2); 
 }
 
 /* MENÚ DE CATEGORÍAS */
+.nav-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.nav-scroll-menu {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 20px;
+    padding: 10px 5px;
+    scrollbar-width: none; 
+}
+.nav-scroll-menu::-webkit-scrollbar { display: none; }
+
 .nav-link {
     text-decoration: none;
-    color: #000000; /* Color negro por defecto */
+    color: #000000;
     font-size: 14px;
     font-weight: 600;
     transition: color 0.3s ease;
     padding: 5px 0;
-    border-bottom: 2px solid transparent; /* Línea invisible para que no salte al activarse */
+    border-bottom: 2px solid transparent;
 }
 
-/* ESTADO ACTIVO (Color Rojo Camel) */
 .nav-link.active { 
-    color: #B60831; 
-    border-bottom: 2px solid #B60831; /* Subrayado sutil en rojo */
+    color: var(--camel-red) !important; 
+    border-bottom: 2px solid var(--camel-red);
 }
 
 .nav-link:hover {
-    color: #B60831; /* También se pone rojo al pasar el mouse */
+    color: var(--camel-red);
 }
-.nav-link.active { color: #000; }
 
 /* CABECERAS DE SECCIÓN */
 .section-header {
@@ -135,7 +151,7 @@ body {
 
 .releases-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas exactas */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     width: 100%;
 }
@@ -151,7 +167,7 @@ body {
 .release-thumbnail {
     position: relative;
     width: 100%;
-    aspect-ratio: 1/1; /* Mantiene la imagen cuadrada siempre */
+    aspect-ratio: 1/1;
     border-radius: 15px;
     overflow: hidden;
     background: #f0f0f0;
@@ -164,7 +180,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Efecto hover sobre la carátula */
 .play-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -199,7 +214,6 @@ body {
     margin: 2px 0 8px 0;
 }
 
-/* Botón estilo "Play" de Komi */
 .play-label {
     font-size: 11px;
     font-weight: 700;
@@ -211,20 +225,41 @@ body {
     gap: 6px;
     width: fit-content;
 }
+
+/* REPRODUCTOR FLOTANTE ANIMADO */
 #player-container {
-    position: fixed; /* Lo dejamos fijo abajo para que no estorbe */
+    position: fixed;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(100%); /* Empieza fuera de pantalla */
     width: 100%;
-    max-width: 480px; /* Misma anchura que tu contenedor principal */
+    max-width: 480px;
     background: white;
-    padding: 10px;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-    border-radius: 20px 20px 0 0;
-    z-index: 999;
+    padding: 15px 10px 25px 10px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.15);
+    border-radius: 30px 30px 0 0;
+    z-index: 1000;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Clase que activa el JS para mostrarlo */
+#player-container.active {
+    transform: translateX(-50%) translateY(0);
 }
 
 #spotify-widget {
-    border-radius: 12px;
+    border-radius: 15px;
+    background: transparent;
+}
+
+/* Botón cerrar opcional pero recomendado */
+.close-player {
+    width: 100%;
+    text-align: right;
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--camel-red);
+    cursor: pointer;
+    text-transform: uppercase;
 }
